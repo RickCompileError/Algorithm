@@ -1,5 +1,5 @@
 // Extended Euclidean Algorithm is an extended version of Euclidean algo
-// It main function is to find coefficient (x,y) for which a*x + b*y = gcd(a,b)
+// Its main function is to find coefficient (x,y) for which a*x + b*y = gcd(a,b)
 
 /*************************************************************** 
 Proof:
