@@ -10,7 +10,7 @@ Proof:
     We only need to know that if c%g == 0, 
     then we get the answer a*x*(c/g) + b*y*(c/g) = c/g 
     for (ansx, ansy) = (x*(c/g), y*(c/g))
-****************************************************************/
+****************************************************************/ 
 
 #include <iostream>
 #include <cmath>
