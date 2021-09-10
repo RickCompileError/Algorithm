@@ -6,8 +6,8 @@ Related problems have:
     find solution in a given interval
     find minimum x+y
 Proof:
-    The problem is seem like a*x + b*y = GCD(a,b)
-    we only need to know that if c%g == 0, 
+    The problem is similar to a*x + b*y = GCD(a,b).
+    We only need to know that if c%g == 0, 
     then we get the answer a*x*(c/g) + b*y*(c/g) = c/g 
     for (ansx, ansy) = (x*(c/g), y*(c/g))
 ****************************************************************/
@@ -30,10 +30,7 @@ int gcd(int a, int b, int &x, int &y){
     return d;
 }
 
-// The solution is infinite if we can find any one of them
-// a*(x+b/g) + b*(y-a/g) = c
-// Obviously, it's equal to a*b + b*y = c, and we get the form
-// anyX = x + k*b/g, anyY = y - k*a/g, for any k
+// Accroding to proof
 bool find_any_solution(int a, int b, int c, int &x, int &y, int &g){
     g = gcd(abs(a), abs(b), x, y);
     if (c%g) return false;
@@ -49,7 +46,11 @@ void shift_solution(int &x, int &y, int a, int b, int cnt){
     y -= cnt*a;
 }
 
-// record all x when >=minx, <=maxx, >=miny, <=maxy, and then count quantity in range
+// The solution is infinite if we can find any pair (x,y).
+// a*(x+b/g) + b*(y-a/g) = c
+// Obviously, it's equal to a*b + b*y = c, and we get the form
+// anyX = x + k*b/g, anyY = y - k*a/g, for any k.
+// Record all x when >=minx, <=maxx, >=miny, <=maxy, and then count quantity in range.
 int find_all_solutions(int a, int b, int c, int minx, int maxx, int miny, int maxy){
     int x, y, g, lxbound, rxbound, lybound, rybound;
     if (!find_any_solution(a, b, c, x, y, g)) return 0;
