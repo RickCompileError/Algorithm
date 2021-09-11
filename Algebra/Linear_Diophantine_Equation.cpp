@@ -102,7 +102,7 @@ int find_mini_sum(int a, int b, int c){
         // e is displacement
         int e = (b-a) / g;
         // m is coefficient of e
-        int m = abs(floor(double(sum)/e));
+        int m = abs(floor((double)sum/e));
         // if both pos or neg sign is -1, vice versa
         int sign = ((e>0 && sum>0) || (e<0 && sum<0))?-1:1;
         sum += sign*m*e;
@@ -112,7 +112,7 @@ int find_mini_sum(int a, int b, int c){
 
 int main(){
     int a, b, c, x, y, g;
-    a = -6, b = 45, c = 51;
+    a = 6, b = 45, c = 51;
     if (find_any_solution(a, b, c, x, y, g)){
         printf("%d*%d + %d*%d = %d, gcd = %d.\n", a, x, b, y, c, g);
     }else{
