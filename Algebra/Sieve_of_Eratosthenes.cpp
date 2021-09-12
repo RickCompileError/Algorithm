@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Use primality test to find prime
 void two_loop(int n){
     vector<int> primes;
     for (int i=2;i<n;i++){
