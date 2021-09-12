@@ -1,3 +1,4 @@
+// The GCD time complexity is O(log min(a,b))
 #include <iostream>
 
 using namespace std;
