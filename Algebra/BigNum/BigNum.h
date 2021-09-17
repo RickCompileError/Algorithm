@@ -2,6 +2,7 @@
 #define BIGNUM_H
 
 #include <bits/stdc++.h>
+#define ll long long
 
 using namespace std;
 
@@ -12,12 +13,17 @@ private:
     vector<int> num;
 public:
     BigNum(string s);
+    vector<int> getNum();
+    void print();
+    string toString();
     void add(BigNum b);
     void add(string s);
     void subtract(BigNum b);
     void subtract(string s);
+    void multiply(BigNum b);
+    void multiply(string s);
+    void divide(int n);
     void removeLeadZero();
-    size_t size();
 };
 
 #endif
