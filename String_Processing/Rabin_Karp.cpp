@@ -26,6 +26,7 @@ vector<int> rabin_karp(string s, string t){
     vector<int> ans;
     for (int i=0;i+S-1<T;i++){
         ll cur = (hashes[i+S]-hashes[i]+m)%m;
+        // value*ppow[i]%m can let two hash values both multiply by same exponent
         if (cur == value*ppow[i]%m) ans.push_back(i);
     }
     return ans;
