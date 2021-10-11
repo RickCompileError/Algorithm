@@ -80,11 +80,20 @@ vector<int> count_string_prefix(string s, string t){
     return ans;
 }
 
+// Given a string, compute the number of different substrings.
+// Recursive input the character c to the substring s, and find the maximum prefix,
+// we can get the number of new substrings appearing is |s|+1-πmax
+// Total time complexity is O(n^2).
 int count_diff_substring(string s){
-    reverse(s.begin(),s.end());
-    vector<int> rev = optimize_prefix(s);
-    int ans=0;
-    for (int i=0;i<s.size();i++) ans += i+1-rev[i];
+    int ans = 0;
+    string sub = "";
+    for (int i=0;i<s.size();i++){
+        sub = s[i] + sub;
+        vector<int> rev = optimize_prefix(sub);
+        int mxu = -1;
+        for (int j: rev) mxu = max(mxu,j);
+        ans += i+1-mxu;
+    }
     return ans;
 }
 
