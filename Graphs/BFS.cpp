@@ -13,7 +13,7 @@ void print(vector<int> input){
     cout <<endl;
 }
 
-void iterate_bfs(int root){
+void bfs(int root){
     queue<int> q;
     q.push(root);
     used[root] = true;
@@ -33,18 +33,6 @@ void iterate_bfs(int root){
     cout <<endl;
 }
 
-void recursive_bfs(int current, int previous=-1){
-    used[current] = true;
-    cout <<current <<' ';
-    for (int i: v[current]){
-        if (!used[i]){
-            dis[i] = dis[current] + 1;
-            parent[i] = current;
-            recursive_bfs(i,current);
-        }
-    }
-}
-
 void input(){
     v.assign(4,vector<int>());
     used.assign(4,false);
@@ -61,9 +49,7 @@ int main(){
     input();
     cout <<"Map:\n";
     for (vector<int> i: v) print(i);
-    cout <<"Iterate BFS: ", iterate_bfs(0);
-    used.assign(4,false);
-    cout <<"Recursive BFS: ", recursive_bfs(0), cout <<endl;
+    cout <<"BFS: ", bfs(0);
     cout <<"Distance: ", print(dis);
     cout <<"Parent: ", print(parent);
 }
