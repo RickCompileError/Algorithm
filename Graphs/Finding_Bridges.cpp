@@ -1,5 +1,6 @@
 // Bridge is defined an edge which, when removed, makes the graph disconnected
-// Compare two points visiting time, if ancester > descendant then the edge is a bridge
+// Compare two points low, if ancester > descendant then the edge is a bridge
+// low[v] = min(visit[v], all visit[p], all low[p]))
 
 #include <bits/stdc++.h>
 
@@ -7,7 +8,7 @@ using namespace std;
 
 vector<vector<int>> adj;
 vector<bool> visit;
-vector<int> time_in;
+vector<int> time_in, low;
 int timer;
 vector<pair<int,int>> bridges;
 
@@ -17,15 +18,15 @@ void print(){
 
 void dfs(int current, int previous=-1){
     visit[current] = true;
-    time_in[current] = timer++;
+    time_in[current] = low[current] = timer++;
     for (int i: adj[current]){
         if (i==previous) continue;
         if (visit[i]){
-            time_in[current] = min(time_in[current],time_in[i]);
+            low[current] = min(low[current],time_in[i]);
         }else{
             dfs(i,current);
-            time_in[current] = min(time_in[current],time_in[i]);
-            if (time_in[current]<time_in[i]) bridges.push_back({current,i});
+            low[current] = min(low[current],low[i]);
+            if (low[current]<low[i]) bridges.push_back({current,i});
         }
     }
 }
@@ -39,6 +40,7 @@ void init(int n){
     adj.assign(n,vector<int>());
     visit.assign(n,false);
     time_in.assign(n,-1);
+    low.assign(n,-1);
     timer = 0;
     input(0,1);
     input(1,2);
