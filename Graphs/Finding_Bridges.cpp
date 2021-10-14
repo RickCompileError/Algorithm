@@ -1,6 +1,6 @@
 // Bridge is defined an edge which, when removed, makes the graph disconnected
 // Compare two points low, if ancester > descendant then the edge is a bridge
-// low[v] = min(visit[v], all visit[p], all low[p]))
+// low[v] = min(visit[v], all visit[p] is back edge, all low[p] is tree edge))
 
 #include <bits/stdc++.h>
 
