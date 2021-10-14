@@ -1,4 +1,5 @@
 // Bridge is defined an edge which, when removed, makes the graph disconnected
+// Compare two points visiting time, if ancester > descendant then the edge is a bridge
 
 #include <bits/stdc++.h>
 
