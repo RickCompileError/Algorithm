@@ -26,7 +26,7 @@ void dfs(int current, int previous=-1){
         }else{
             dfs(i,current);
             low[current] = min(low[current],low[i]);
-            if (low[current]<low[i]) bridges.push_back({current,i});
+            if (low[i]>time_in[current]) bridges.push_back({current,i});
         }
     }
 }
