@@ -53,6 +53,16 @@ void gray_inverse_to_number(string g){
     cout <<g <<" inverse to " <<num <<endl;
 }
 
+int ntog(int n){
+    return n^(n>>1);
+}
+
+int gton(int g){
+    int n = 0;
+    for (;g;g>>=1) n ^= g;
+    return n;
+}
+
 int main(){
     generate_by_reverse(3);
 
